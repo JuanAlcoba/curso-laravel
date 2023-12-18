@@ -1,8 +1,16 @@
 <IfModule mod_rewrite.c>
-    Options -MultiViews
-    RewriteEngine On
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
 
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+    RewriteEngine On
+    RewriteBase /
+
+    # If the request points to an existing file or directory, serve it
+    RewriteCond %{REQUEST_FILENAME} -d [OR]
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
+
+    # Pass all other requests to index.php
+    RewriteRule ^(.*)$ index.php [L]
 </IfModule>
