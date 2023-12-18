@@ -30,7 +30,7 @@ COPY cursito-app/ .
 RUN composer install --no-interaction --no-progress
 
 # Configura los permisos si es necesario
-# RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap
 
 # Expone el puerto 80 para el servidor Apache
 EXPOSE 80
