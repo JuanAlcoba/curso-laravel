@@ -1,5 +1,5 @@
 # Usa una imagen oficial de PHP como base
-FROM php:8.0-apache
+FROM php:8.1-apache
 
 # Establece el directorio de trabajo
 WORKDIR /var/www/html
@@ -10,6 +10,9 @@ RUN apt-get update && \
     libzip-dev \
     unzip \
     mariadb-client
+
+# Instala extensiones de PHP necesarias
+RUN docker-php-ext-install pdo_mysql
 
 # Copia la configuración de Apache
 COPY laravel.conf /etc/apache2/sites-available/000-default.conf
