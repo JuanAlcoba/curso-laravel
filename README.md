@@ -9,11 +9,15 @@ Después de clonar el repositorio, asegúrate de tener instalado Docker y Docker
 ## Pasos
 
 1. Crea un archivo `.env` y copia los datos de `.env.example`.
-2. Construye las imágenes con el siguiente comando:
+2. buildear front localmente con npm, para que luego el build pueda encontrar el package-lock.json:
+    ```bash
+    npm install
+    ```
+3. Construye las imágenes con el siguiente comando:
     ```bash
     docker-compose build
     ```
-3. Levanta los contenedores en segundo plano:
+4. Levanta los contenedores en segundo plano:
     ```bash
     docker-compose up -d
     ```
@@ -35,7 +39,7 @@ Al levantar los contenedores, la aplicación servida por Apache estará escuchan
     ```
   Esto generará una clave de cifrado que Laravel utiliza para proteger información cifrada y la colocará automáticamente en tu archivo `.env`.
 
-4. Correr migraciones: (dentro del conteiner de la app)
+5. Correr migraciones: (dentro del conteiner de la app)
     ```bash
     php artisan migrate
     ```

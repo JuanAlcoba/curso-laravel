@@ -11,6 +11,14 @@ services:
     depends_on:
       - database
 
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.front
+    volumes:
+      - ./cursito-app:/var/www/html
+    command: npm run dev   # Comando específico para iniciar el contenedor frontend
+
   database:
     image: mariadb:latest
     environment:
