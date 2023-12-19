@@ -35,3 +35,12 @@ Al levantar los contenedores, la aplicación servida por Apache estará escuchan
     ```
   Esto generará una clave de cifrado que Laravel utiliza para proteger información cifrada y la colocará automáticamente en tu archivo `.env`.
 
+4. Correr migraciones: (dentro del conteiner de la app)
+    ```bash
+    php artisan migrate
+    ```
+    si se quiere crear data fake con factory ejecutar con el comando:
+
+    ```bash
+    php artisan migrate:refresh --seed
+    ```
