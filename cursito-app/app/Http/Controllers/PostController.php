@@ -40,7 +40,7 @@ class PostController extends Controller
     public function update(Request $request, Post $post) {
         $request->validate([
             'titulo' => 'required',
-            'slug' => 'required|unique:posts,slug',
+            'slug' => 'required|unique:posts,slug', . $post->id,
             'body' => 'required',
         ]);
         $post->update([
