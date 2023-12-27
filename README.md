@@ -48,3 +48,8 @@ Al levantar los contenedores, la aplicación servida por Apache estará escuchan
     ```bash
     php artisan migrate:refresh --seed
     ```
+
+6. en una consola aparte, levantar el servidor de desarrollo para el front
+    ```bash
+    npm run dev
+    ```
