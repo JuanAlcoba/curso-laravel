@@ -13,8 +13,9 @@
                 <a href="{{ route('home') }}">
                     <img src="{{ asset('images/elephant.svg') }}" alt="Logo" class="h-12">
                 </a>
-                <form action="">
-                    <input type="text" name="" id="" placeholder="Buscar">
+                <form action="{{ route('home') }}" method="GET" class="flex-grow">
+                    <input type="text" name="search" id="" placeholder="Buscar" value="{{ request('search') }}"
+                    class="border border-gray-200 rounded py-2 w-1/2">
                 </form>
             </div>
             @auth
